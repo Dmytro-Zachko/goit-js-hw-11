@@ -1,11 +1,13 @@
 import { refs } from "./refs";
 
 function CardsListMarkup(array) {
- return array.map(({ webformatURL,largeImageURL,tags,likes,views,comments,downloads }) => {
-        return `
+  
+  const markup = array
+    .map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => 
+       `
         <a class="gallery__link" href="${largeImageURL}">
    <div class="photo-card">
-  <img src="${webformatURL}" alt="${tags}" loading="lazy" />
+  <img src="${webformatURL}" alt="${tags}" loading="lazy" width="400px"/>
   <div class="info">
     <p class="info-item">
       <b>Likes</b>
@@ -26,9 +28,9 @@ function CardsListMarkup(array) {
   </div>
 </div>
 </a> 
-`;
-    })
-    .join(''); 
+`).join(''); 
+  
+  return markup;
 };
 
 function ClearGallery() {
