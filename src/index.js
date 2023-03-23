@@ -18,7 +18,8 @@ let page = 1;
 async  function OnFormSubmit (e) {
     e.preventDefault()
     searchQuery = e.currentTarget.elements.searchQuery.value
-   
+    ClearGallery();
+
     if (searchQuery) {
         try {
             const response = await FetchPixabay(searchQuery, page)
