@@ -19,13 +19,13 @@ async  function OnFormSubmit (e) {
     e.preventDefault()
     searchQuery = e.currentTarget.elements.searchQuery.value
     ClearGallery();
+isHiddenLoadMoreBtn()
 
     if (searchQuery) {
         try {
             const response = await FetchPixabay(searchQuery, page)
              if (response.data.totalHits === 0) {
                 Notify.failure  ("Sorry, there are no images matching your search query. Please try again.")
-                 isHiddenLoadMoreBtn();
              }
             else  {
               refs.gallery.insertAdjacentHTML('beforeend', CardsListMarkup(response.data.hits));
